@@ -1,10 +1,12 @@
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
 import Home from './Components/Home/home';
+import User from './Components/User/user';
+import Cart from './Components/AddToCart/cart';
 const App = () => {
   return (
     <View style={styles.container}>
-      <Home/>
+      <Cart/>
     </View>
   );
 };

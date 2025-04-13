@@ -24,6 +24,7 @@ const homeStyles = StyleSheet.create({
     width: '100%',
   },
   searchContainer2: {
+    
     marginTop: 20,
     paddingHorizontal: 20,
   },
@@ -96,7 +97,7 @@ const homeStyles = StyleSheet.create({
   iconContainer: {
     justifyContent: 'center',
     alignItems: 'center',
-    paddingVertical:13
+    paddingVertical: 13
   },
   activeTopBar: {
     position: 'absolute',
@@ -109,7 +110,7 @@ const homeStyles = StyleSheet.create({
   },
   activeIcon: {
     color: '#105150',
-    fontSize:28
+    fontSize: 28
   },
   circleImage: {
     width: 90,
@@ -117,15 +118,177 @@ const homeStyles = StyleSheet.create({
     borderRadius: 45,
     borderWidth: 1,
     borderColor: '#d6d6d6',
-    marginTop:10
   },
   imageLabel: {
-    marginTop: 5,
-    fontSize: 17,
+    fontSize: 18,
     color: '#333',
     textAlign: 'center',
+    width: 95,
+  },
+  wrapper: {
+    padding: 15,
+    backgroundColor: '#0752da',
+  },
+  privilegesTitle: {
+    fontSize: 26,
+    color: 'white',
+    fontWeight: 'bold',
+    textAlign: 'center',
+
+  },
+  privilegesContainer: {
+    flexDirection: 'row',
+  },
+  privilegeItem: {
+    alignItems: 'center',
+    width: 90,
+  },
+  circleImage: {
     width: 80,
-  },  
+    height: 80,
+    borderRadius: 40,
+    borderWidth: 1,
+    borderColor: '#d6d6d6',
+    marginBottom: 10,
+  },
+  privilegeLabel: {
+    fontSize: 12,
+    color: 'white',
+    textAlign: 'center',
+  },
+  plusSign: {
+    fontSize: 28,
+    color: 'white',
+    fontWeight: 'bold',
+    marginTop: 20
+  },
+  primeText: {
+    fontSize: 18,
+    color: 'black',
+    fontWeight: 'bold',
+    marginBottom: 10
+  },
+  joinButton: {
+    backgroundColor: '#f0a633',
+    borderRadius: 30,
+    paddingVertical: 3,
+    paddingHorizontal: 8,
+    fontSize: 12,
+    marginBottom: 20
+  },
+  rectangleWrapperContainer: {
+    marginBottom: 20,
+  },
+
+  rectangleWrapper: {
+    flexDirection: 'row',
+  },
+
+  rectangleCard: {
+    width: 150,
+    height: 190,
+    backgroundColor: '#f0f0f0',
+    borderRadius: 4,
+    marginRight: 10,
+    position: 'relative',
+    overflow: 'hidden',
+  },
+
+  rectangleImage: {
+    width: '100%',
+    height: '100%',
+    resizeMode: 'cover',
+  },
+
+  rectangleText: {
+    position: 'absolute',
+    top: 1,
+    fontSize: 14,
+    fontWeight: '500',
+    textAlign: 'center',
+    padding: 5,
+    borderRadius: 4,
+  },
+  whiteBoldText: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    color: 'white',
+    marginLeft: 10
+
+  },
+  containerKitchen: {
+    padding: 16,
+    backgroundColor: '#fff',
+  },
+  titleKitchen: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    marginBottom: 12,
+    color: '#333',
+  },
+  gridKitchen: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'space-between',
+  },
+  itemKitchen: {
+    width: '48%',
+    aspectRatio: 1, 
+    overflow: 'hidden',
+    backgroundColor: '#f2f2f2',
+    marginBottom: 12,
+  },
+  imageKitchen: {
+    width: '100%',
+    height: '100%',
+    resizeMode: 'cover',
+  },
+  linkText: {
+    color: '#0f4557',
+    textDecorationLine: 'underline',
+    alignSelf: 'flex-start', 
+    fontSize: 14,
+  },
+  fashionContainer: {
+    margin: 10,
+    marginBottom: 50,
+  },
+  title: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    marginBottom: 10,
+  },
+  scrollContainer: {
+    flexDirection: 'row',
+  },
+  itemContainer: {
+    marginRight: 10,
+    backgroundColor: '#4d79e0',
+    padding: 8,
+    alignItems: 'center',
+  },
+  image: {
+    width: 150,
+    height: 150,
+  },
+  discountContainer: {
+    backgroundColor: 'white',
+    paddingVertical: 5,
+    paddingHorizontal: 10,
+    marginTop: 5,
+    borderRadius: 4,
+  },
+  discountText: {
+    color: 'black',
+    fontWeight: 'bold',
+    fontSize: 22,
+  },
+  descriptionText: {
+    marginTop: 5,
+    fontSize: 14,
+    color: '#333',
+    textAlign: 'center',
+  },
   
 });
 
