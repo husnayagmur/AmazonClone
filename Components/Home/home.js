@@ -4,6 +4,7 @@ import LinearGradient from 'react-native-linear-gradient';
 import Icon from 'react-native-vector-icons/Fontisto';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import styles from '../../Styles/homeStyles';
+import BottomTabBar from '../Layout/BottomTabBar';
 
 const Home = () => {
   const [activeIcon, setActiveIcon] = useState(null);
@@ -12,7 +13,7 @@ const Home = () => {
   };
   return (
     <View style={styles.container}>
-      <LinearGradient
+       <LinearGradient
         colors={['#50dcd9', '#55ddbb']}
         start={{ x: 0, y: 0 }}
         end={{ x: 1, y: 0 }}
@@ -43,7 +44,7 @@ const Home = () => {
             <FontAwesome name="angle-down" size={15} color="gray" style={styles.downArrowIcon} />
           </View>
         </LinearGradient>
-        <View style={{ height: '9%', marginBottom: 10 }}>
+        <View style={{ height: '8%', marginBottom: 10 }}>
           <ScrollView
             horizontal
             showsHorizontalScrollIndicator={false}
@@ -137,23 +138,25 @@ const Home = () => {
                 {
                   img: require('../../assets/home/eskiyiVerYeniyiAl.jpg'),
                   label: 'Eskiyi ver yeniyi kap',
-                  style: { color: '#8A2BE2' } 
+                  style: { color: '#8A2BE2' }
                 },
                 {
                   img: require('../../assets/home/modaUrunleri.jpg'),
                   label: 'Moda ürünlerinde sezon sonu fırsatları',
-                  style: { color: '#FF69B4' } 
+                  style: { color: '#FF69B4' }
                 },
                 {
                   img: require('../../assets/home/butceDostu.jpg'),
                   label: 'Butçe dostu ürünleri keşfet',
-                  style: { color: '#20B2AA' } 
+                  style: { color: '#20B2AA' }
                 }
               ]
                 .map((item, index) => (
                   <View key={index} style={styles.rectangleCard}>
                     <Image source={item.img} style={styles.rectangleImage} />
+                    <View>
                     <Text style={[styles.rectangleText, item.style]}>{item.label}</Text>
+                    </View>
                   </View>
                 ))}
             </ScrollView>
@@ -185,25 +188,32 @@ const Home = () => {
             </View>
           </LinearGradient>
         </View>
-        <View style={styles.containerKitchen}>
-          <Text style={styles.titleKitchen}>Mutfak kategorisini keşfet</Text>
-          <View style={styles.gridKitchen}>
-            <View style={styles.itemKitchen}>
-              <Image source={require('../../assets/home/mutfakRobotu.jpg')} style={styles.imageKitchen} />
+        <View style={styles.containerCategory}>
+          <Text style={styles.titleCategory}>Mutfak kategorisini keşfet</Text>
+          <View style={styles.gridCategory}>
+
+            <View style={styles.itemCategory}>
+              <Image source={require('../../assets/home/mutfakRobotu.jpg')} style={styles.imageCategory} />
+              <Text style={styles.captionCategory}>Mutfak Robotu</Text>
             </View>
-            <View style={styles.itemKitchen}>
-              <Image source={require('../../assets/home/tostMakinesi.jpg')} style={styles.imageKitchen} />
+
+            <View style={styles.itemCategory}>
+              <Image source={require('../../assets/home/tostMakinesi.jpg')} style={styles.imageCategory} />
+              <Text style={styles.captionCategory}>Tost Makinesi</Text>
             </View>
-            <View style={styles.itemKitchen}>
-              <Image source={require('../../assets/home/suIsıtıcı.jpg')} style={styles.imageKitchen} />
+
+            <View style={styles.itemCategory}>
+              <Image source={require('../../assets/home/suIsıtıcı.jpg')} style={styles.imageCategory} />
+              <Text style={styles.captionCategory}>Su Isıtıcı</Text>
             </View>
-            <View style={styles.itemKitchen}>
-              <Image source={require('../../assets/home/kahveMakinesi.jpg')} style={styles.imageKitchen} />
+
+            <View style={styles.itemCategory}>
+              <Image source={require('../../assets/home/kahveMakinesi.jpg')} style={styles.imageCategory} />
+              <Text style={styles.captionCategory}>Kahve Makinesi</Text>
             </View>
           </View>
           <Text style={styles.linkText}>Kategorileri gör</Text>
         </View>
-
         <View style={styles.fashionContainer}>
           <Text style={styles.title}>
             Moda'da sezon sonu fırsatları | Sepette indirimler
@@ -223,48 +233,42 @@ const Home = () => {
                   <View style={styles.discountContainer}>
                     <Text style={styles.discountText}>Sepette %10</Text>
                   </View>
-                  <View style={{ backgroundColor: 'white', marginTop: 5 }}>
+                  <View style={styles.descriptionContainer}>
                     <Text style={styles.descriptionText}>{item.description}</Text>
                   </View>
+
                 </View>
               ))}
             </View>
           </ScrollView>
         </View>
 
-      </ScrollView>
-      {/* Alt Sabit Bar */}
-      <View style={styles.bottomBarContainer}>
-        <View style={styles.bottomBar}>
-          <TouchableWithoutFeedback onPress={() => handleIconPress('home')}>
-            <View style={styles.iconContainer}>
-              {activeIcon === 'home' && <View style={styles.activeTopBar} />}
-              <FontAwesome name="home" style={[styles.icon, activeIcon === 'home' && styles.activeIcon]} />
+        <View style={styles.containerCategory}>
+          <Text style={styles.titleCategory}>Mutfak kategorisini keşfet</Text>
+          <View style={styles.gridCategory}>
+          <View style={[styles.itemCategory, { backgroundColor: '#fdb587' }]}>
+              <Image source={require('../../assets/home/saksılar.png')} style={styles.imageCategory} />
+              <Text style={styles.descriptionContainer}>Mutfak Robotu</Text>
             </View>
-          </TouchableWithoutFeedback>
+            <View style={[styles.itemCategory, { backgroundColor: '#fb8e46' }]}>
+              <Image source={require('../../assets/home/tohum.png')} style={styles.imageCategory} />
+              <Text style={styles.descriptionContainer}>Tost Makinesi</Text>
+            </View>
 
-          <TouchableWithoutFeedback onPress={() => handleIconPress('user')}>
-            <View style={styles.iconContainer}>
-              {activeIcon === 'user' && <View style={styles.activeTopBar} />}
-              <FontAwesome name="user" style={[styles.icon, activeIcon === 'user' && styles.activeIcon]} />
+            <View style={[styles.itemCategory, { backgroundColor: '#fb8e46' }]}>
+              <Image source={require('../../assets/home/toprak.png')} style={styles.imageCategory} />
+              <Text style={styles.descriptionContainer}>Su Isıtıcı</Text>
             </View>
-          </TouchableWithoutFeedback>
 
-          <TouchableWithoutFeedback onPress={() => handleIconPress('shopping-cart')}>
-            <View style={styles.iconContainer}>
-              {activeIcon === 'shopping-cart' && <View style={styles.activeTopBar} />}
-              <FontAwesome name="shopping-cart" style={[styles.icon, activeIcon === 'shopping-cart' && styles.activeIcon]} />
+            <View style={[styles.itemCategory, { backgroundColor: '#fdb587' }]}>
+              <Image source={require('../../assets/home/bahceElAletleri.png')} style={styles.imageCategory} />
+              <Text style={styles.descriptionContainer}>Kahve Makinesi</Text>
             </View>
-          </TouchableWithoutFeedback>
-
-          <TouchableWithoutFeedback onPress={() => handleIconPress('bars')}>
-            <View style={styles.iconContainer}>
-              {activeIcon === 'bars' && <View style={styles.activeTopBar} />}
-              <FontAwesome name="bars" style={[styles.icon, activeIcon === 'bars' && styles.activeIcon]} />
-            </View>
-          </TouchableWithoutFeedback>
+          </View>
+          <Text style={styles.linkText }>Kategorileri gör</Text>
         </View>
-      </View>
+      </ScrollView>
+      <BottomTabBar/>
     </View>
   );
 };

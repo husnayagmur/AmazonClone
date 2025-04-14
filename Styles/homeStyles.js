@@ -24,7 +24,6 @@ const homeStyles = StyleSheet.create({
     width: '100%',
   },
   searchContainer2: {
-    
     marginTop: 20,
     paddingHorizontal: 20,
   },
@@ -202,7 +201,7 @@ const homeStyles = StyleSheet.create({
 
   rectangleText: {
     position: 'absolute',
-    top: 1,
+    bottom: 1,
     fontSize: 14,
     fontWeight: '500',
     textAlign: 'center',
@@ -216,42 +215,44 @@ const homeStyles = StyleSheet.create({
     marginLeft: 10
 
   },
-  containerKitchen: {
-    padding: 16,
+  containerCategory: {
+    padding: 15,
     backgroundColor: '#fff',
   },
-  titleKitchen: {
+  titleCategory: {
     fontSize: 18,
     fontWeight: 'bold',
-    marginBottom: 12,
-    color: '#333',
+    marginBottom: 10,
   },
-  gridKitchen: {
+  gridCategory: {
     flexDirection: 'row',
     flexWrap: 'wrap',
     justifyContent: 'space-between',
   },
-  itemKitchen: {
-    width: '48%',
-    aspectRatio: 1, 
-    overflow: 'hidden',
-    backgroundColor: '#f2f2f2',
-    marginBottom: 12,
+  itemCategory: {
+    width: '47%',
+    marginBottom: 10,
+    alignItems: 'flex-start', // Resim ve yazıyı ortalamak için
   },
-  imageKitchen: {
+  imageCategory: {
     width: '100%',
-    height: '100%',
-    resizeMode: 'cover',
+    height: 180,
+  },
+  captionCategory: {
+    marginTop: 6,
+    fontSize: 14,
+    color: '#444',
+    textAlign: 'left',
   },
   linkText: {
-    color: '#0f4557',
+    color: '#007bff',
+    fontSize: 16,
+    textAlign: 'left',
     textDecorationLine: 'underline',
-    alignSelf: 'flex-start', 
-    fontSize: 14,
-  },
+  },  
   fashionContainer: {
     margin: 10,
-    marginBottom: 50,
+    marginBottom: 10,
   },
   title: {
     fontSize: 18,
@@ -264,7 +265,6 @@ const homeStyles = StyleSheet.create({
   itemContainer: {
     marginRight: 10,
     backgroundColor: '#4d79e0',
-    padding: 8,
     alignItems: 'center',
   },
   image: {
@@ -289,7 +289,18 @@ const homeStyles = StyleSheet.create({
     color: '#333',
     textAlign: 'center',
   },
+  descriptionContainer: {
+    backgroundColor: 'white',
+    marginTop: 5,
+    width: '100%',
+  },
   
+  descriptionText: {
+    fontSize: 14,
+    color: '#333',
+    paddingHorizontal: 4,
+  },
+
 });
 
 export default homeStyles;

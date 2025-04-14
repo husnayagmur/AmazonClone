@@ -1,8 +1,13 @@
 import React from 'react';
 import styles from '../../Styles/cartStyles'
-import Icon from 'react-native-vector-icons/FontAwesome'; 
-import {View,Text,Image,StyleSheet,Dimensions,TouchableOpacity,ScrollView,FlatList, Button,
+import FontAwesomeIcon from 'react-native-vector-icons/FontAwesome';
+import FontistoIcon from 'react-native-vector-icons/Fontisto';
+
+import {
+  View, Text, Image, StyleSheet, Dimensions, TouchableOpacity, ScrollView, FlatList, Button, TextInput,
 } from 'react-native';
+import BottomTabBar from '../Layout/BottomTabBar';
+import LinearGradient from 'react-native-linear-gradient';
 const data = [
   {
     id: '1',
@@ -65,6 +70,24 @@ const data = [
 const Cart = () => {
   return (
     <View style={styles.cartContainer}>
+      <LinearGradient
+        colors={['#50dcd9', '#55ddbb']}
+        start={{ x: 0, y: 0 }}
+        end={{ x: 1, y: 0 }}
+        style={[styles.gradientContainer, { paddingVertical: 5 }]}
+
+      >
+        <View style={styles.searchContainer2}>
+          <View style={styles.searchContainer}>
+            <FontistoIcon name="search" size={20} color="gray" style={styles.searchIcon} />
+            <TextInput
+              placeholder="Amazon.com.tr'de Ara"
+              style={styles.input}
+            />
+            <FontistoIcon name="camera" size={20} color="gray" style={styles.cameraIcon} />
+          </View>
+        </View>
+      </LinearGradient>
       <ScrollView contentContainerStyle={styles.scrollContent}>
         <View style={styles.emptyCartBox}>
           <Image
@@ -95,12 +118,12 @@ const Cart = () => {
                 </Text>
                 <Text style={styles.productPrice}>{item.price}</Text>
                 <View style={styles.starContainer}>
-                  <Icon name="star" size={20} color="#f46e01" />
-                  <Icon name="star" size={20} color="#f46e01" />
-                  <Icon name="star" size={20} color="#f46e01" />
-                  <Icon name="star" size={20} color="#f46e01" />
-                  <Icon name="star-half" size={20} color="#f46e01" />
-                  <Text style={[ { marginLeft: 10, fontSize: 16,  color: '#0f4557',}]}>
+                  <FontAwesomeIcon name="star" size={20} color="#f46e01" />
+                  <FontAwesomeIcon name="star" size={20} color="#f46e01" />
+                  <FontAwesomeIcon name="star" size={20} color="#f46e01" />
+                  <FontAwesomeIcon name="star" size={20} color="#f46e01" />
+                  <FontAwesomeIcon name="star-half" size={20} color="#f46e01" />
+                  <Text style={[{ marginLeft: 10, fontSize: 16, color: '#0f4557', }]}>
                     {item.rating}
                   </Text>
                 </View>
@@ -132,12 +155,12 @@ const Cart = () => {
                 </Text>
                 <Text style={styles.productPrice}>{item.price}</Text>
                 <View style={styles.starContainer}>
-                  <Icon name="star" size={20} color="#f46e01" />
-                  <Icon name="star" size={20} color="#f46e01" />
-                  <Icon name="star" size={20} color="#f46e01" />
-                  <Icon name="star" size={20} color="#f46e01" />
-                  <Icon name="star-half" size={20} color="#f46e01" />
-                  <Text style={[ { marginLeft: 10, fontSize: 16,  color: '#0f4557',}]}>
+                  <FontAwesomeIcon name="star" size={20} color="#f46e01" />
+                  <FontAwesomeIcon name="star" size={20} color="#f46e01" />
+                  <FontAwesomeIcon name="star" size={20} color="#f46e01" />
+                  <FontAwesomeIcon name="star" size={20} color="#f46e01" />
+                  <FontAwesomeIcon name="star-half" size={20} color="#f46e01" />
+                  <Text style={[{ marginLeft: 10, fontSize: 16, color: '#0f4557', }]}>
                     {item.rating}
                   </Text>
                 </View>
@@ -157,6 +180,7 @@ const Cart = () => {
           <Text style={styles.thinText}>Alışverişe devam et</Text>
         </TouchableOpacity>
       </View>
+      <BottomTabBar />
     </View>
   );
 };
