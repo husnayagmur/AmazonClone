@@ -1,4 +1,5 @@
-import { StyleSheet } from 'react-native';
+import { Dimensions,StyleSheet } from 'react-native';
+const { width, height } = Dimensions.get('window');
 
 const homeStyles = StyleSheet.create({
   container: {
@@ -11,21 +12,21 @@ const homeStyles = StyleSheet.create({
     width: '100%',
   },
   searchContainer: {
-    padding: 40,
-    marginTop: 30,
+    padding: width * 0.05,
+    marginTop: height * 0.03,
     flexDirection: 'row',
     alignItems: 'center',
     backgroundColor: 'white',
     borderWidth: 1,
     borderColor: '#000',
     borderRadius: 10,
-    paddingHorizontal: 15,
-    paddingVertical: 8,
+    paddingHorizontal: width * 0.04,
+    paddingVertical: height * 0.01,
     width: '100%',
   },
   searchContainer2: {
-    marginTop: 20,
-    paddingHorizontal: 20,
+    marginTop: height * 0.02,
+    paddingHorizontal: width * 0.05,
   },
   searchIcon: {
     marginRight: 5,
@@ -38,7 +39,7 @@ const homeStyles = StyleSheet.create({
   },
   input: {
     flex: 1,
-    height: 40,
+    height: height * 0.04,
     fontSize: 18,
     color: '#4a4a4a',
     textAlignVertical: 'center',
@@ -112,9 +113,9 @@ const homeStyles = StyleSheet.create({
     fontSize: 28
   },
   circleImage: {
-    width: 90,
-    height: 90,
-    borderRadius: 45,
+    width: width * 0.2,
+    height: width * 0.2,
+    borderRadius: (width * 0.2) / 2,
     borderWidth: 1,
     borderColor: '#d6d6d6',
   },
@@ -140,7 +141,7 @@ const homeStyles = StyleSheet.create({
   },
   privilegeItem: {
     alignItems: 'center',
-    width: 90,
+    width: width * 0.2,
   },
   circleImage: {
     width: 80,
@@ -184,8 +185,8 @@ const homeStyles = StyleSheet.create({
   },
 
   rectangleCard: {
-    width: 150,
-    height: 190,
+    width: width * 0.4,
+    height: height * 0.22,
     backgroundColor: '#f0f0f0',
     borderRadius: 4,
     marginRight: 10,
@@ -236,7 +237,7 @@ const homeStyles = StyleSheet.create({
   },
   imageCategory: {
     width: '100%',
-    height: 180,
+    height: height * 0.20,
   },
   captionCategory: {
     marginTop: 6,
@@ -268,8 +269,8 @@ const homeStyles = StyleSheet.create({
     alignItems: 'center',
   },
   image: {
-    width: 150,
-    height: 150,
+    width: width * 0.4,
+    height: width * 0.4,
   },
   discountContainer: {
     backgroundColor: 'white',
@@ -300,6 +301,9 @@ const homeStyles = StyleSheet.create({
     color: '#333',
     paddingHorizontal: 4,
   },
+  height:{
+    height: height*0.07
+  }
 
 });
 

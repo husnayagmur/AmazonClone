@@ -1,6 +1,9 @@
 import { Dimensions, StyleSheet } from 'react-native';
 
-const { width } = Dimensions.get('window');
+const { width, height } = Dimensions.get('window');
+
+const dynamicFontSize = (size) => width > 400 ? size : size * 0.9;
+
 const cartStyles = StyleSheet.create({
   cartContainer: {
     flex: 1,
@@ -8,14 +11,14 @@ const cartStyles = StyleSheet.create({
     justifyContent: 'space-between',
   },
   scrollContent: {
-    paddingBottom: 20,
+    paddingBottom: height * 0.02,
   },
   emptyCartBox: {
     flexDirection: 'row',
     alignItems: 'center',
-    paddingHorizontal: 10,
-    marginBottom: 30,
-    marginTop: 20,
+    paddingHorizontal: width * 0.03,
+    marginBottom: height * 0.03,
+    marginTop: height * 0.02,
   },
   emptyCartImage: {
     width: width * 0.25,
@@ -23,102 +26,132 @@ const cartStyles = StyleSheet.create({
     resizeMode: 'contain',
   },
   textContainer: {
-    marginLeft: 16,
+    marginLeft: width * 0.04,
     maxWidth: width * 0.6,
   },
   emptyCartTitle: {
-    fontSize: width > 375 ? 18 : 16,
+    fontSize: dynamicFontSize(18),
     fontWeight: 'bold',
     color: '#333',
     marginBottom: 4,
   },
   CartTitle: {
-    fontSize: width > 375 ? 22 : 16,
+    fontSize: dynamicFontSize(22),
     fontWeight: 'bold',
     color: '#333',
     marginBottom: 4,
   },
   emptyCartSubtitle: {
-    fontSize: width > 375 ? 16 : 14,
+    fontSize: dynamicFontSize(16),
     color: '#777',
   },
   recommendationContainer: {
-    paddingVertical: 25,
-    paddingHorizontal: 15,
+    paddingVertical: height * 0.03,
+    paddingHorizontal: width * 0.04,
     backgroundColor: '#ededed',
   },
+  recommendationContainerAddToCart: {
+    backgroundColor: 'white',
+  },
   recommendation: {
-    paddingHorizontal: 10,
+    paddingHorizontal: width * 0.03,
+    backgroundColor: 'white',
+  },
+  recommendationAddToCart: {
+    padding: width * 0.05,
     backgroundColor: 'white',
   },
   recommendationTitle: {
-    fontSize: 18,
+    fontSize: dynamicFontSize(18),
     fontWeight: '600',
     color: '#0f4557',
     marginBottom: 10,
     maxWidth: '90%',
-    overflow: 'hidden',
-    textOverflow: 'ellipsis',
+    lineHeight: 22,
+  },
+  recommendationTitleCart: {
+    fontSize: dynamicFontSize(18),
+    fontWeight: '600',
+    color: '#0f4557',
+    marginBottom: 10,
+    maxWidth: '80%',
     lineHeight: 22,
   },
   bottomButtonWrapper: {
-    paddingHorizontal: 20,
-    paddingBottom: 20,
+    paddingHorizontal: width * 0.05,
+    paddingBottom: height * 0.02,
     backgroundColor: '#fff',
   },
   continueButton: {
     backgroundColor: '#ebbe1e',
-    paddingVertical: 14,
+    paddingVertical: height * 0.018,
     borderRadius: 30,
+    marginTop: height * 0.01,
   },
   thinText: {
     color: 'black',
-    fontSize: 18,
+    fontSize: dynamicFontSize(18),
     textAlign: 'center',
   },
   productContainer: {
     flexDirection: 'row',
     alignItems: 'center',
   },
+  productContainerColumn: {
+    flexDirection: 'column',
+    alignItems: 'flex-start',
+  },
   productBox: {
     backgroundColor: 'white',
-    width: width * 0.6,
-    height: width * 0.9,
+    width: width * 0.5,
+    height: width * 1,
     alignItems: 'flex-start',
-    paddingHorizontal: 10,
-    paddingTop: 10,
+    paddingHorizontal: width * 0.03,
+    paddingTop: height * 0.015,
+  },
+  productBoxCart: {
+    backgroundColor: '#f2f2f2',
+    flexDirection: 'row',
+    alignItems: 'center',
+    padding: width * 0.03,
+    marginBottom: height * 0.015,
+    borderRadius: 10,
+  },
+  productImageCart: {
+    width: width * 0.25,
+    height: width * 0.25,
+    resizeMode: 'contain',
+    marginRight: width * 0.03,
   },
   productImage: {
     width: '100%',
-    height: 200,
+    height: height * 0.25,
     resizeMode: 'contain',
   },
   productTitle: {
-    fontSize: 14,
+    fontSize: dynamicFontSize(14),
     color: '#333',
-    marginTop: 8,
+    marginTop: height * 0.01,
     textAlign: 'center',
     maxWidth: '80%',
-    overflow: 'hidden',
-    textOverflow: 'ellipsis',
     lineHeight: 18,
   },
   addToCard: {
     backgroundColor: '#ebbe1e',
-    paddingVertical: 2,
-    paddingHorizontal: 15,
+    paddingVertical: height * 0.005,
+    paddingHorizontal: width * 0.04,
     borderRadius: 30,
-    marginTop: 10,
-    marginBottom: 20
+    marginTop: height * 0.01,
+    marginBottom: height * 0.02,
   },
   productPrice: {
-    fontSize: 18,
+    fontSize: dynamicFontSize(18),
     color: '#964a31',
-    marginTop: 5,
+    marginTop: height * 0.007,
   },
   starContainer: {
     flexDirection: 'row',
-    marginTop: 5,
+    marginTop: height * 0.005,
     justifyContent: 'flex-start',
   },
   starImage: {
@@ -127,25 +160,25 @@ const cartStyles = StyleSheet.create({
     marginRight: 3,
   },
   gradientContainer: {
-    justifyContent: 'start',
+    justifyContent: 'flex-start',
     width: '100%',
   },
   searchContainer: {
-    padding: 40,
-    marginTop: 30,
+    padding: width * 0.05,
+    marginTop: height * 0.03,
     flexDirection: 'row',
     alignItems: 'center',
     backgroundColor: 'white',
     borderWidth: 1,
     borderColor: '#000',
     borderRadius: 10,
-    paddingHorizontal: 15,
-    paddingVertical: 8,
+    paddingHorizontal: width * 0.04,
+    paddingVertical: height * 0.01,
     width: '100%',
   },
   searchContainer2: {
-    marginTop: 20,
-    paddingHorizontal: 20,
+    marginTop: height * 0.02,
+    paddingHorizontal: width * 0.05,
   },
   searchIcon: {
     marginRight: 5,
@@ -158,11 +191,34 @@ const cartStyles = StyleSheet.create({
   },
   input: {
     flex: 1,
-    height: 40,
-    fontSize: 18,
+    height: height * 0.04,
+    fontSize: dynamicFontSize(18),
     color: '#4a4a4a',
     textAlignVertical: 'center',
     paddingVertical: 0,
+  },
+  height: {
+    height: height * 0.07,
+  },
+  cartDescription: {
+    fontSize: dynamicFontSize(16),
+  },
+  cartTextContainer: {
+    flexDirection: 'column',
+  },
+  actionButtonsContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginTop: height * 0.015,
+    width: '70%',
+    gap: width * 0.01,
+  },
+  actionButtons: {
+    borderWidth: 1,
+    borderColor: '#393c3d',
+    borderRadius: 50,
+    paddingHorizontal: width * 0.025,
+    paddingVertical: height * 0.005,
   },
 });
 

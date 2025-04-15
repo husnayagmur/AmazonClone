@@ -135,41 +135,44 @@ const userStyles = StyleSheet.create({
     gradientContainer: {
         justifyContent: 'start',
         width: '100%',
-    },
-    searchContainer: {
-        padding: 40,
-        marginTop: 30,
+      },
+      searchContainer: {
+        padding: width * 0.05,
+        marginTop: height * 0.03,
         flexDirection: 'row',
         alignItems: 'center',
         backgroundColor: 'white',
         borderWidth: 1,
         borderColor: '#000',
         borderRadius: 10,
-        paddingHorizontal: 15,
-        paddingVertical: 8,
+        paddingHorizontal: width * 0.04,
+        paddingVertical: height * 0.01,
         width: '100%',
-    },
-    searchContainer2: {
-        marginTop: 20,
-        paddingHorizontal: 20,
-    },
-    searchIcon: {
+      },
+      searchContainer2: {
+        marginTop: height * 0.02,
+        paddingHorizontal: width * 0.05,
+      },
+      searchIcon: {
         marginRight: 5,
         color: '#333333',
         fontSize: 20,
-    },
-    cameraIcon: {
+      },
+      cameraIcon: {
         marginLeft: 5,
         color: '#333333',
-    },
-    input: {
+      },
+      input: {
         flex: 1,
-        height: 40,
+        height: height * 0.04,
         fontSize: 18,
         color: '#4a4a4a',
         textAlignVertical: 'center',
         paddingVertical: 0,
-    },
+      },
+      height:{
+        height: height*0.07
+      }
 });
 
 

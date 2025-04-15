@@ -154,6 +154,7 @@ const User = () => {
                         </View>
                     </View>
                 </View>
+                <View style={styles.height}></View>
             </ScrollView>
             <BottomTabBar /></>
     );

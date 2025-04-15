@@ -13,7 +13,7 @@ const Home = () => {
   };
   return (
     <View style={styles.container}>
-       <LinearGradient
+      <LinearGradient
         colors={['#50dcd9', '#55ddbb']}
         start={{ x: 0, y: 0 }}
         end={{ x: 1, y: 0 }}
@@ -155,7 +155,7 @@ const Home = () => {
                   <View key={index} style={styles.rectangleCard}>
                     <Image source={item.img} style={styles.rectangleImage} />
                     <View>
-                    <Text style={[styles.rectangleText, item.style]}>{item.label}</Text>
+                      <Text style={[styles.rectangleText, item.style]}>{item.label}</Text>
                     </View>
                   </View>
                 ))}
@@ -246,7 +246,7 @@ const Home = () => {
         <View style={styles.containerCategory}>
           <Text style={styles.titleCategory}>Mutfak kategorisini keşfet</Text>
           <View style={styles.gridCategory}>
-          <View style={[styles.itemCategory, { backgroundColor: '#fdb587' }]}>
+            <View style={[styles.itemCategory, { backgroundColor: '#fdb587' }]}>
               <Image source={require('../../assets/home/saksılar.png')} style={styles.imageCategory} />
               <Text style={styles.descriptionContainer}>Mutfak Robotu</Text>
             </View>
@@ -265,10 +265,11 @@ const Home = () => {
               <Text style={styles.descriptionContainer}>Kahve Makinesi</Text>
             </View>
           </View>
-          <Text style={styles.linkText }>Kategorileri gör</Text>
+          <Text style={styles.linkText}>Kategorileri gör</Text>
         </View>
+        <View style={styles.height}></View>
       </ScrollView>
-      <BottomTabBar/>
+      <BottomTabBar />
     </View>
   );
 };
