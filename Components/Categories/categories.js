@@ -6,7 +6,7 @@ import Icon from 'react-native-vector-icons/Feather';
 import FontistoIcon from 'react-native-vector-icons/Fontisto';
 import BottomTabBar from '../Layout/BottomTabBar';
 import styles from '../../Styles/categoriesStyles';
-import data from '../../data/categoriesData'; 
+import data from '../../data/categoriesData';
 const { height } = Dimensions.get('window');
 
 const chunkArray = (arr, size) => {
@@ -16,7 +16,6 @@ const chunkArray = (arr, size) => {
   }
   return result;
 };
-
 const CategoryBox = ({ item, isSelected, onPress }) => (
   <TouchableOpacity style={styles.boxContainer} onPress={onPress}>
     <Text style={styles.label}>{item.label}</Text>
@@ -26,7 +25,7 @@ const CategoryBox = ({ item, isSelected, onPress }) => (
   </TouchableOpacity>
 );
 
-const Categories = () => {
+const Categories = ({ navigation }) => {
   const [selectedIndex, setSelectedIndex] = useState(null);
   const groupedData = chunkArray(data, 3);
 
@@ -43,25 +42,37 @@ const Categories = () => {
                 key={actualIndex}
                 item={item}
                 isSelected={selectedIndex === actualIndex}
-                onPress={() =>
-                  setSelectedIndex(selectedIndex === actualIndex ? null : actualIndex)
-                }
+                onPress={() => {
+                  setSelectedIndex(selectedIndex === actualIndex ? null : actualIndex);
+                }}
               />
+
             );
           })}
         </View>
 
         {selectedIndex !== null &&
-          selectedIndex >= startIndex &&
-          selectedIndex < startIndex + 3 && (
-            <View style={styles.buttonGroup}>
-              {data[selectedIndex].buttonLabel.map((label, idx) => (
-                <TouchableOpacity key={idx} style={styles.groupCustomButton}>
-                  <Text style={styles.buttonText}>{label}</Text>
-                </TouchableOpacity>
-              ))}
-            </View>
-          )}
+  selectedIndex >= startIndex &&
+  selectedIndex < startIndex + 3 && (
+    <View style={styles.buttonGroup}>
+      {data[selectedIndex].buttonLabel.map((label, idx) => (
+        <TouchableOpacity
+          key={idx}
+          style={styles.groupCustomButton}
+          onPress={() => {
+            // "Gıda Ürünleri" butonuna tıklanırsa navigasyona git
+            if (label === 'Gıda Ürünleri') {
+              navigation.navigate('Gida');
+            }
+            // Diğer butonlar için gerekli aksiyonları buraya ekleyebilirsiniz
+          }}
+        >
+          <Text style={styles.buttonText}>{label}</Text>
+        </TouchableOpacity>
+      ))}
+    </View>
+  )}
+
       </View>
     );
   };

@@ -117,46 +117,29 @@ const Home = () => {
               {[
                 {
                   img: require('../../assets/home/iphone.jpg'),
-                  label: 'Alışverişe devam edin',
-                  style: { color: '#FF6347' }
                 },
                 {
-                  img: require('../../assets/home/dortYildiz.jpg'),
-                  label: 'Senin için 4 yıldız ve üstü fırsat',
-                  style: { color: '#FFD700' }
+                  img: require('../../assets/home/yildizli.jpg'),
                 },
                 {
-                  img: require('../../assets/home/amazoonDepo.jpg'),
-                  label: 'İade edilmiş ürünlerde avantajlı fiyatlar',
-                  style: { color: '#008080' }
+                  img: require('../../assets/home/amazonDepo.jpg'),
                 },
                 {
                   img: require('../../assets/home/kargoBedava.jpg'),
-                  label: 'İlk siparişinde kargo bedava',
-                  style: { color: 'black' }
                 },
                 {
                   img: require('../../assets/home/eskiyiVerYeniyiAl.jpg'),
-                  label: 'Eskiyi ver yeniyi kap',
-                  style: { color: '#8A2BE2' }
                 },
                 {
-                  img: require('../../assets/home/modaUrunleri.jpg'),
-                  label: 'Moda ürünlerinde sezon sonu fırsatları',
-                  style: { color: '#FF69B4' }
+                  img: require('../../assets/home/modaÜrünleri.jpg'),
                 },
                 {
                   img: require('../../assets/home/butceDostu.jpg'),
-                  label: 'Butçe dostu ürünleri keşfet',
-                  style: { color: '#20B2AA' }
                 }
               ]
                 .map((item, index) => (
                   <View key={index} style={styles.rectangleCard}>
                     <Image source={item.img} style={styles.rectangleImage} />
-                    <View>
-                      <Text style={[styles.rectangleText, item.style]}>{item.label}</Text>
-                    </View>
                   </View>
                 ))}
             </ScrollView>
@@ -248,21 +231,21 @@ const Home = () => {
           <View style={styles.gridCategory}>
             <View style={[styles.itemCategory, { backgroundColor: '#fdb587' }]}>
               <Image source={require('../../assets/home/saksılar.png')} style={styles.imageCategory} />
-              <Text style={styles.descriptionContainer}>Mutfak Robotu</Text>
+              <Text style={styles.descriptionContainer}>Saksılar</Text>
             </View>
             <View style={[styles.itemCategory, { backgroundColor: '#fb8e46' }]}>
               <Image source={require('../../assets/home/tohum.png')} style={styles.imageCategory} />
-              <Text style={styles.descriptionContainer}>Tost Makinesi</Text>
+              <Text style={styles.descriptionContainer}>Tohum</Text>
             </View>
 
             <View style={[styles.itemCategory, { backgroundColor: '#fb8e46' }]}>
               <Image source={require('../../assets/home/toprak.png')} style={styles.imageCategory} />
-              <Text style={styles.descriptionContainer}>Su Isıtıcı</Text>
+              <Text style={styles.descriptionContainer}>Toprak </Text>
             </View>
 
             <View style={[styles.itemCategory, { backgroundColor: '#fdb587' }]}>
               <Image source={require('../../assets/home/bahceElAletleri.png')} style={styles.imageCategory} />
-              <Text style={styles.descriptionContainer}>Kahve Makinesi</Text>
+              <Text style={styles.descriptionContainer}>Bahçe El Aletleri</Text>
             </View>
           </View>
           <Text style={styles.linkText}>Kategorileri gör</Text>

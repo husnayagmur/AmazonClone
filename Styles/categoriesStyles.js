@@ -23,7 +23,7 @@ const categoriesStyles = StyleSheet.create({
     width: boxSize,
     alignItems: 'center',
     justifyContent: 'center',
-    margin: 5,
+    marginVertical: 10,
     backgroundColor: 'white',
     borderColor: '#195d55',
     borderWidth: 1,
