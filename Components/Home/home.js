@@ -6,7 +6,7 @@ import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import styles from '../../Styles/homeStyles';
 import BottomTabBar from '../Layout/BottomTabBar';
 
-const Home = () => {
+const Home = ({navigation}) => {
   const [activeIcon, setActiveIcon] = useState(null);
   const handleIconPress = (icon) => {
     setActiveIcon(icon);
@@ -82,7 +82,7 @@ const Home = () => {
             <View style={{ alignItems: 'center', width: '100%' }}>
               <Text style={styles.primeText}>amazon prime</Text>
             </View>
-            <View style={styles.privilegesContainer}>
+            <View style={{ flexDirection: 'row', }}>
               {[{ img: require('../../assets/home/kargo.jpg'), label: 'Bedava aynı & ertesi gün kargo' },
               { img: require('../../assets/home/market.jpg'), label: 'Market alışverişlerinde %10 indirim' },
               { img: require('../../assets/home/prime2.jpg'), label: 'İnternete Özel' },
@@ -171,7 +171,7 @@ const Home = () => {
             </View>
           </LinearGradient>
         </View>
-        <View style={styles.containerCategory}>
+        <View style={{ padding: 15, backgroundColor: '#fff', }}>
           <Text style={styles.titleCategory}>Mutfak kategorisini keşfet</Text>
           <View style={styles.gridCategory}>
 
@@ -226,29 +226,29 @@ const Home = () => {
           </ScrollView>
         </View>
 
-        <View style={styles.containerCategory}>
+        <View style={{ padding: 15, backgroundColor: '#fff', }}>
           <Text style={styles.titleCategory}>Mutfak kategorisini keşfet</Text>
           <View style={styles.gridCategory}>
             <View style={[styles.itemCategory, { backgroundColor: '#fdb587' }]}>
               <Image source={require('../../assets/home/saksılar.png')} style={styles.imageCategory} />
-              <Text style={styles.descriptionContainer}>Saksılar</Text>
+              <Text style={[styles.descriptionContainer, { backgroundColor: 'white' }]}>Saksılar</Text>
             </View>
             <View style={[styles.itemCategory, { backgroundColor: '#fb8e46' }]}>
               <Image source={require('../../assets/home/tohum.png')} style={styles.imageCategory} />
-              <Text style={styles.descriptionContainer}>Tohum</Text>
+              <Text style={[styles.descriptionContainer, { backgroundColor: 'white' }]}>Tohum</Text>
             </View>
 
             <View style={[styles.itemCategory, { backgroundColor: '#fb8e46' }]}>
               <Image source={require('../../assets/home/toprak.png')} style={styles.imageCategory} />
-              <Text style={styles.descriptionContainer}>Toprak </Text>
+              <Text style={[styles.descriptionContainer, { backgroundColor: 'white' }]}>Toprak </Text>
             </View>
 
             <View style={[styles.itemCategory, { backgroundColor: '#fdb587' }]}>
               <Image source={require('../../assets/home/bahceElAletleri.png')} style={styles.imageCategory} />
-              <Text style={styles.descriptionContainer}>Bahçe El Aletleri</Text>
+              <Text style={[styles.descriptionContainer, { backgroundColor: 'white' }]}>Bahçe El Aletleri</Text>
             </View>
           </View>
-          <Text style={styles.linkText}>Kategorileri gör</Text>
+          <Text style={styles.linkText} onPress={() => navigation.navigate('Categories')}>Kategorileri gör</Text>
         </View>
         <View style={styles.height}></View>
       </ScrollView>

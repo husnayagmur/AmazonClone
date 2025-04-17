@@ -67,7 +67,7 @@ const User = () => {
                                 <Text style={styles.descriptionText}>Listeler</Text>
                             </TouchableOpacity>
                         </View>
-                        <View style={styles.orderContainer}>
+                        <View style={styles.jointAgain}>
                             <Text style={[styles.textIncreaseBold, { marginBottom: 20 }]}>Siparişlerim</Text>
                             <Text style={styles.textIncrease}>Merhaba,yeni siparişin yok.</Text>
                             <TouchableOpacity style={styles.buttonRectangle} onPress={() => { }}>

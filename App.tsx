@@ -8,6 +8,7 @@ import User from './Components/User/user';
 import Cart from './Components/AddToCart/cart';
 import Categories from './Components/Categories/categories';
 import ProductList from './Components/Products/productList';
+import ProductDetail from './Components/Products/productDetail';
 
 const Stack = createStackNavigator();
 
@@ -20,7 +21,8 @@ const App = () => {
           <Stack.Screen name="User" options={{ headerShown: false }} component={User} />
           <Stack.Screen name="Cart" options={{ headerShown: false }} component={Cart} />
           <Stack.Screen name="Categories" options={{ headerShown: false }} component={Categories} />
-          <Stack.Screen name="Gida" options={{ headerShown: false }} component={ProductList} />
+          <Stack.Screen name="ProductList" options={{ headerShown: false }} component={ProductList} />
+          <Stack.Screen name="ProductDetail" options={{ headerShown: false }} component={ProductDetail} />
         </Stack.Navigator>
       </NavigationContainer>
     </Provider>

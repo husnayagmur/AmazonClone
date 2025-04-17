@@ -2,8 +2,8 @@ import React from 'react';
 import styles from '../../Styles/cartStyles';
 import FontAwesomeIcon from 'react-native-vector-icons/FontAwesome';
 import FontistoIcon from 'react-native-vector-icons/Fontisto';
-import Icon from 'react-native-vector-icons/Fontisto';
 import data from '../../data/cartData';
+import Icons from 'react-native-vector-icons/Ionicons';
 
 import {
   View, Text, Image, TouchableOpacity, ScrollView, FlatList, TextInput,
@@ -11,9 +11,9 @@ import {
 import BottomTabBar from '../Layout/BottomTabBar';
 import LinearGradient from 'react-native-linear-gradient';
 import { useDispatch, useSelector } from 'react-redux';
-import { addToCart, removeFromCart, clearCart } from '../../redux/cartSlice';
+import { addToCart, removeFromCart, clearCart, decreaseQuantity } from '../../redux/cartSlice';
 
-const Cart = () => {
+const Cart = ({ navigation }) => {
   const dispatch = useDispatch();
   const cartItems = useSelector(state => state.cart.cartItems);
   const handleAddToCart = (item) => {
@@ -24,6 +24,12 @@ const Cart = () => {
   };
   const handleRemoveFromCart = (item) => {
     dispatch(removeFromCart(item.id));
+  };
+  const handleIncrease = (item) => {
+    dispatch(addToCart(item));
+  };
+  const handleDecrease = (item) => {
+    dispatch(decreaseQuantity(item.id));
   };
 
   return (
@@ -96,20 +102,22 @@ const Cart = () => {
                     <Image source={item.image} style={styles.productImageCart} />
                     <View
                       style={{
-                        flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', borderWidth: 2, borderColor: '#ebbe1e', borderRadius: 50, padding: 5, marginVertical:10, width: 120,
+                        flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', borderWidth: 2, borderColor: '#ebbe1e', borderRadius: 50, padding: 5, marginVertical: 10, width: 120,
                       }}
                     >
                       <TouchableOpacity>
-                        <Icon name="trash-bin-outline" size={20} color="#393c3d" />
+                        <Icons name="trash-bin-outline" onPress={() => handleDecrease(item)} size={20} color="#393c3d" />
                       </TouchableOpacity>
-                      <Text style={{ fontSize: 18, fontWeight: 'bold', color: '#393c3d' }}>1</Text>
+                      <Text style={{ fontSize: 18, fontWeight: 'bold', color: '#393c3d' }}>
+                        {item.quantity}
+                      </Text>
                       <TouchableOpacity>
-                        <Icon name="add-outline" size={20} color="#393c3d" />
+                        <Icons name="add-outline" onPress={() => handleIncrease(item)} size={20} color="#393c3d" />
                       </TouchableOpacity>
                     </View>
                   </View>
-                  <View style={styles.cartTextContainer}>
-                    <Text style={styles.recommendationTitleCart} numberOfLines={2} ellipsizeMode="tail">
+                  <View style={{flexDirection: 'column',}}>
+                    <Text style={styles.recommendationTitle} numberOfLines={2} ellipsizeMode="tail">
                       {item.title}
                     </Text>
                     <Text style={{ fontWeight: 'bold', fontSize: 18 }}>{item.price}</Text>
@@ -146,7 +154,7 @@ const Cart = () => {
             </View>
           </View>
         }
-        {/* Önerilen Ürünler */}
+
         <View style={styles.recommendationContainer}>
           <View style={styles.recommendation}>
             <Text style={styles.CartTitle}>Sizin İçin En İyi Ürünler</Text>
@@ -179,7 +187,7 @@ const Cart = () => {
             showsHorizontalScrollIndicator={false}
           />
         </View>
-        {/* En Son Satın Alınanlar */}
+
         <View style={styles.recommendationContainer}>
           <View style={styles.recommendation}>
             <Text style={styles.CartTitle}>
@@ -215,17 +223,17 @@ const Cart = () => {
           />
         </View>
 
-        {/* Alt Buton */}
         <View style={styles.bottomButtonWrapper}>
-          <TouchableOpacity style={styles.continueButton}>
+          <TouchableOpacity
+            style={styles.continueButton}
+            onPress={() => navigation.navigate('ProductList')}
+          >
             <Text style={styles.thinText}>Alışverişe devam et</Text>
           </TouchableOpacity>
         </View>
-
         <View style={styles.height}></View>
       </ScrollView>
       <BottomTabBar />
-
     </View>
   );
 };

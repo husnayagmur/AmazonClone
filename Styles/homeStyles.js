@@ -108,10 +108,6 @@ const homeStyles = StyleSheet.create({
     borderBottomLeftRadius: 4,
     borderBottomRightRadius: 4,
   },
-  activeIcon: {
-    color: '#105150',
-    fontSize: 28
-  },
   circleImage: {
     width: width * 0.2,
     height: width * 0.2,
@@ -123,7 +119,7 @@ const homeStyles = StyleSheet.create({
     fontSize: 18,
     color: '#333',
     textAlign: 'center',
-    width: 95,
+    width: width*0.25,
   },
   wrapper: {
     padding: 15,
@@ -134,22 +130,10 @@ const homeStyles = StyleSheet.create({
     color: 'white',
     fontWeight: 'bold',
     textAlign: 'center',
-
-  },
-  privilegesContainer: {
-    flexDirection: 'row',
   },
   privilegeItem: {
     alignItems: 'center',
     width: width * 0.2,
-  },
-  circleImage: {
-    width: 80,
-    height: 80,
-    borderRadius: 40,
-    borderWidth: 1,
-    borderColor: '#d6d6d6',
-    marginBottom: 10,
   },
   privilegeLabel: {
     fontSize: 12,
@@ -160,7 +144,8 @@ const homeStyles = StyleSheet.create({
     fontSize: 28,
     color: 'white',
     fontWeight: 'bold',
-    marginTop: 20
+    marginTop: 20,
+    marginHorizontal:2
   },
   primeText: {
     fontSize: 18,
@@ -193,13 +178,11 @@ const homeStyles = StyleSheet.create({
     position: 'relative',
     overflow: 'hidden',
   },
-
   rectangleImage: {
     width: '100%',
     height: '100%',
     resizeMode: 'cover',
   },
-
   rectangleText: {
     position: 'absolute',
     bottom: 1,
@@ -216,10 +199,6 @@ const homeStyles = StyleSheet.create({
     marginLeft: 10
 
   },
-  containerCategory: {
-    padding: 15,
-    backgroundColor: '#fff',
-  },
   titleCategory: {
     fontSize: 18,
     fontWeight: 'bold',
@@ -233,7 +212,7 @@ const homeStyles = StyleSheet.create({
   itemCategory: {
     width: '47%',
     marginBottom: 10,
-    alignItems: 'flex-start', // Resim ve yazıyı ortalamak için
+    alignItems: 'flex-start',
   },
   imageCategory: {
     width: '100%',
@@ -284,25 +263,18 @@ const homeStyles = StyleSheet.create({
     fontWeight: 'bold',
     fontSize: 22,
   },
-  descriptionText: {
-    marginTop: 5,
-    fontSize: 14,
-    color: '#333',
-    textAlign: 'center',
-  },
   descriptionContainer: {
-    backgroundColor: 'white',
+    backgroundColor: '#f0f0f0',
     marginTop: 5,
     width: '100%',
   },
-  
   descriptionText: {
     fontSize: 14,
     color: '#333',
     paddingHorizontal: 4,
   },
   height:{
-    height: height*0.07
+    height: height*0.08
   }
 
 });

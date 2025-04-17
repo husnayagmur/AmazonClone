@@ -1,7 +1,7 @@
 import React from 'react';
 import { Text, View, ScrollView, Image, TouchableOpacity } from 'react-native';
 import { useSelector, useDispatch } from 'react-redux';
-import { toggleShowMore } from '../../redux/productSlice';
+import { toggleShowMore,setSelectedProduct } from '../../redux/productSlice';
 import styles from '../../Styles/productListStyles';
 import LinearGradient from 'react-native-linear-gradient';
 import Icon from 'react-native-vector-icons/Fontisto';
@@ -9,16 +9,22 @@ import { TextInput } from 'react-native-gesture-handler';
 import BottomTabBar from '../Layout/BottomTabBar';
 import FontAwesomeIcon from 'react-native-vector-icons/FontAwesome';
 
-
-const ProductList = () => {
+const ProductList = ({navigation}) => {
   const dispatch = useDispatch();
-  const { bestsellers, showAll, featuredImages, multiPack, maximumValue, products } = useSelector((state) => state.products);
-
+  const { bestsellers, showAll, featuredImages, multiPack, maximumValue, products, } = useSelector((state) => state.products);
   const imagesToShow = showAll ? bestsellers : bestsellers.slice(0, 6);
   const today = new Date();
   const day = today.getDate();
   const tomorrow = today.getDate() + 1;
   const month = today.toLocaleString('tr-TR', { month: 'long' });
+
+  const handleProductPress = (item) => {
+    // Tıklanan ürünü Redux store'a gönderiyoruz
+    dispatch(setSelectedProduct(item));
+    // Ürün detayına yönlendiriyoruz
+    navigation.navigate('ProductDetail');
+  };
+
   return (
     <View style={styles.container}>
       <LinearGradient
@@ -43,10 +49,12 @@ const ProductList = () => {
           <Text style={styles.sectionTitle}>Öne Çıkan Kategoriler</Text>
           <View style={styles.imageGrid}>
             {imagesToShow.map((item, index) => (
-              <View key={index} style={styles.imageCardRound}>
+              <TouchableOpacity key={index} onPress={() => handleProductPress(item)}>
+                <View key={index} style={styles.imageCardRound}>
                 <Image source={item.image} style={styles.imageRound} />
                 <Text style={styles.imageLabel}>{item.label}</Text>
               </View>
+              </TouchableOpacity>
             ))}
           </View>
 
@@ -62,6 +70,7 @@ const ProductList = () => {
           <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
             <View style={styles.imageGrid}>
               {featuredImages.map((item, index) => (
+                <TouchableOpacity key={index} onPress={() => handleProductPress(item)}>
                 <View key={index} style={styles.imageCardSquare}>
                   <Image source={item.image} style={styles.imageSquare} />
                   <Text style={styles.imageLabel} numberOfLines={1} ellipsizeMode="tail">
@@ -69,6 +78,7 @@ const ProductList = () => {
                   </Text>
                   <Text style={styles.price}>{item.price}</Text>
                 </View>
+                </TouchableOpacity>
               ))}
             </View>
           </ScrollView>
@@ -79,6 +89,7 @@ const ProductList = () => {
           <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
             <View style={styles.imageGrid}>
               {multiPack.map((item, index) => (
+                <TouchableOpacity key={index} onPress={() => handleProductPress(item)}>
                 <View key={index} style={styles.imageCardSquare}>
                   <Image source={item.image} style={styles.imageSquare} />
                   <Text style={styles.imageLabel} numberOfLines={1} ellipsizeMode="tail">
@@ -86,6 +97,7 @@ const ProductList = () => {
                   </Text>
                   <Text style={styles.price}>{item.price}</Text>
                 </View>
+                </TouchableOpacity>
               ))}
             </View>
           </ScrollView>
@@ -96,6 +108,7 @@ const ProductList = () => {
           <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
             <View style={styles.imageGrid}>
               {maximumValue.map((item, index) => (
+                <TouchableOpacity key={index} onPress={() => handleProductPress(item)}>
                 <View key={index} style={styles.imageCardSquare}>
                   <Image source={item.image} style={styles.imageSquare} />
                   <Text style={styles.imageLabel} numberOfLines={1} ellipsizeMode="tail">
@@ -103,6 +116,7 @@ const ProductList = () => {
                   </Text>
                   <Text style={styles.price}>{item.price}</Text>
                 </View>
+                </TouchableOpacity>
               ))}
             </View>
           </ScrollView>
@@ -116,6 +130,7 @@ const ProductList = () => {
           <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
             <View style={styles.imageFilterGrid}>
               {products.map((item, index) => (
+                 <TouchableOpacity key={index} onPress={() => handleProductPress(item)}>
                 <View key={index} style={styles.imageSquareFilter}>
                   <Image source={item.image} style={styles.imageFilterSquare} />
                   <View style={styles.imageLabelContainer} >
@@ -138,6 +153,7 @@ const ProductList = () => {
                     <Text style={[{ fontSize: 12 }]}>veya en hızlı teslimat yarın<Text style={[{ fontSize: 12, fontWeight: 'bold' }]}>{tomorrow} {month}</Text></Text>
                   </View>
                 </View>
+                </TouchableOpacity>
               ))}
             </View>
           </ScrollView>

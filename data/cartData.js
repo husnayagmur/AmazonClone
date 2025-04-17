@@ -1,5 +1,3 @@
-// /data/cartData.js
-
 const cartData = [
     {
       id: '1',

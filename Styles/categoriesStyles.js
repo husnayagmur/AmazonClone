@@ -94,14 +94,10 @@ const categoriesStyles = StyleSheet.create({
     marginTop: height * 0.02,
     paddingHorizontal: width * 0.05,
   },
-  searchIcon: {
+  Icon: {
     marginRight: 5,
     color: '#333333',
     fontSize: 20,
-  },
-  cameraIcon: {
-    marginLeft: 5,
-    color: '#333333',
   },
   input: {
     flex: 1,
@@ -119,7 +115,6 @@ const categoriesStyles = StyleSheet.create({
     borderColor: '#195d55',
     borderRadius: 10,
 },
-
 groupCustomButton: {
     flexDirection: 'row',
     justifyContent: 'space-between',
@@ -129,7 +124,6 @@ groupCustomButton: {
     borderRadius: 10,
     marginVertical: 4,
 },
-
 buttonText: {
     fontSize: 16,
     color: '#333',

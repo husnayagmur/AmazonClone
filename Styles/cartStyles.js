@@ -69,14 +69,6 @@ const cartStyles = StyleSheet.create({
     maxWidth: '90%',
     lineHeight: 22,
   },
-  recommendationTitleCart: {
-    fontSize: dynamicFontSize(18),
-    fontWeight: '600',
-    color: '#0f4557',
-    marginBottom: 10,
-    maxWidth: '80%',
-    lineHeight: 22,
-  },
   bottomButtonWrapper: {
     paddingHorizontal: width * 0.05,
     paddingBottom: height * 0.02,
@@ -202,9 +194,6 @@ const cartStyles = StyleSheet.create({
   },
   cartDescription: {
     fontSize: dynamicFontSize(16),
-  },
-  cartTextContainer: {
-    flexDirection: 'column',
   },
   actionButtonsContainer: {
     flexDirection: 'row',

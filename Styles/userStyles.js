@@ -87,9 +87,6 @@ const userStyles = StyleSheet.create({
         alignSelf: 'center',
         marginTop: 10
     },
-    orderContainer: {
-        padding: 10
-    },
     jointgainContainer: {
         paddingVertical: 5,
         backgroundColor: '#ededed',
@@ -105,11 +102,6 @@ const userStyles = StyleSheet.create({
         justifyContent: 'space-between',
         alignItems: 'center',
         marginBottom: 12,
-    },
-    textIncreaseBold: {
-        fontSize: 20,
-        fontWeight: 'bold',
-        color: '#333',
     },
     linkText: {
         fontSize: 16,

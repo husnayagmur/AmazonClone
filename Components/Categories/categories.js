@@ -52,27 +52,24 @@ const Categories = ({ navigation }) => {
         </View>
 
         {selectedIndex !== null &&
-  selectedIndex >= startIndex &&
-  selectedIndex < startIndex + 3 && (
-    <View style={styles.buttonGroup}>
-      {data[selectedIndex].buttonLabel.map((label, idx) => (
-        <TouchableOpacity
-          key={idx}
-          style={styles.groupCustomButton}
-          onPress={() => {
-            // "Gıda Ürünleri" butonuna tıklanırsa navigasyona git
-            if (label === 'Gıda Ürünleri') {
-              navigation.navigate('Gida');
-            }
-            // Diğer butonlar için gerekli aksiyonları buraya ekleyebilirsiniz
-          }}
-        >
-          <Text style={styles.buttonText}>{label}</Text>
-        </TouchableOpacity>
-      ))}
-    </View>
-  )}
-
+          selectedIndex >= startIndex &&
+          selectedIndex < startIndex + 3 && (
+            <View style={styles.buttonGroup}>
+              {data[selectedIndex].buttonLabel.map((label, idx) => (
+                <TouchableOpacity
+                  key={idx}
+                  style={styles.groupCustomButton}
+                  onPress={() => {
+                    if (label === 'Gıda Ürünleri') {
+                      navigation.navigate('ProductList');
+                    }
+                  }}
+                >
+                  <Text style={styles.buttonText}>{label}</Text>
+                </TouchableOpacity>
+              ))}
+            </View>
+          )}
       </View>
     );
   };
@@ -87,9 +84,9 @@ const Categories = ({ navigation }) => {
       >
         <View style={styles.searchContainer2}>
           <View style={styles.searchContainer}>
-            <FontistoIcon name="search" size={20} color="gray" style={styles.searchIcon} />
+            <FontistoIcon name="search" size={20} color="gray" style={styles.Icon} />
             <TextInput placeholder="Amazon.com.tr'de Ara" style={styles.input} />
-            <FontistoIcon name="camera" size={20} color="gray" style={styles.cameraIcon} />
+            <FontistoIcon name="camera" size={20} color="gray" style={styles.Icon} />
           </View>
         </View>
       </LinearGradient>
