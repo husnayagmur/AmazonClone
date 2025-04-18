@@ -70,7 +70,8 @@ const Cart = ({ navigation }) => {
               <Text style={{ fontSize: 20 }}>
                 Ara Toplam{' '}
                 <Text style={{ fontWeight: 'bold' }}>
-                  {cartItems.reduce((total, item) => total + parseFloat(item.price), 0).toFixed(4)} TL
+                {cartItems.reduce((total, item) => total + parseFloat(item.price) * item.quantity, 0).toFixed(4)} TL
+
                 </Text>
               </Text>
               <View style={{ marginTop: 5 }}>

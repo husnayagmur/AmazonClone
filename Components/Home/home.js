@@ -44,7 +44,7 @@ const Home = ({navigation}) => {
             <FontAwesome name="angle-down" size={15} color="gray" style={styles.downArrowIcon} />
           </View>
         </LinearGradient>
-        <View style={{ height: '8%', marginBottom: 10 }}>
+        <View style={{ height: '7%', marginBottom: 10 }}>
           <ScrollView
             horizontal
             showsHorizontalScrollIndicator={false}

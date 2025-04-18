@@ -199,7 +199,7 @@ const cartStyles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     marginTop: height * 0.015,
-    width: '70%',
+    width: width*0.5,
     gap: width * 0.01,
   },
   actionButtons: {

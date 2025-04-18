@@ -99,13 +99,21 @@ const Categories = ({ navigation }) => {
         showsVerticalScrollIndicator={false}
         ListFooterComponent={
           <View>
-            {['Hesapları Değiştir', 'Oturumu Kapat', 'Müşteri Hizmetleri'].map((text, index) => (
-              <TouchableOpacity key={index} style={styles.customButton}>
-                <Text style={styles.buttonText}>{text}</Text>
-                <Icon name="chevron-right" size={20} color="#333" />
-              </TouchableOpacity>
-            ))}
-          </View>
+          {['Hesapları Değiştir', 'Oturumu Kapat', 'Müşteri Hizmetleri'].map((text, index) => (
+            <TouchableOpacity
+              key={index}
+              style={styles.customButton}
+              onPress={() => {
+                if (text === 'Oturumu Kapat') {
+                  navigation.navigate('LoginHome');
+                }
+              }}
+            >
+              <Text style={styles.buttonText}>{text}</Text>
+              <Icon name="chevron-right" size={20} color="#333" />
+            </TouchableOpacity>
+          ))}
+        </View>
         }
       />
 

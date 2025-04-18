@@ -274,7 +274,7 @@ const homeStyles = StyleSheet.create({
     paddingHorizontal: 4,
   },
   height:{
-    height: height*0.08
+    height: height*0.1
   }
 
 });
